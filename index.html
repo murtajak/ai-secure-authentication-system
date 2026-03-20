@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThreatGate • Secure Signup</title>
+
+  <!-- Fonts (optional, safe if blocked; it will fall back) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="theme-cyber">
+  <!-- Background -->
+  <div class="bg">
+    <!-- Optional: keep this if you also save the background.svg below -->
+    <img src="background.svg" class="bg-image" alt="Cyber background" />
+    <div class="bg-grid"></div>
+    <div class="bg-scanlines"></div>
+    <div class="bg-noise"></div>
+    <div class="bg-glow"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="brand-text">
+        <div class="brand-title">ThreatGate</div>
+        <div class="brand-sub">Multi-layer signup security • Bloom + AI + HIBP</div>
+      </div>
+    </div>
+
+    <nav class="top-actions">
+      <a class="chip" href="dashboard.html" title="Open dashboard">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Security Dashboard</span>
+      </a>
+      <div class="chip chip-live" title="Frontend status">
+        <span class="dot"></span>
+        <span>LIVE</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <!-- Left HUD panel -->
+    <section class="hud">
+      <div class="hud-card">
+        <div class="hud-title"><i class="fa-solid fa-terminal"></i> Threat Model</div>
+        <div class="hud-lines">
+          <div class="hud-line"><span class="k">Layer 1</span><span class="v">Redis Bloom breach check</span></div>
+          <div class="hud-line"><span class="k">Layer 2</span><span class="v">AI PII predictability</span></div>
+          <div class="hud-line"><span class="k">Layer 3</span><span class="v">HIBP contact exposure</span></div>
+        </div>
+        <div class="hud-note">
+          <i class="fa-solid fa-circle-info"></i>
+          Password blocks return <strong>AI-generated</strong> passphrases.
+        </div>
+      </div>
+
+      <div class="hud-card">
+        <div class="hud-title"><i class="fa-solid fa-satellite-dish"></i> Operator Tips</div>
+        <ul class="hud-list">
+          <li>Use a <strong>passphrase</strong> (3–5 words + number + symbol).</li>
+          <li>Avoid names, birthdays, colors, pets, keyboard patterns.</li>
+          <li>If email/phone is breached: <strong>Continue</strong> or <strong>Change</strong> first.</li>
+        </ul>
+      </div>
+
+      <div class="hud-card hud-card-mini">
+        <div class="hud-mini">
+          <span class="mini-label">Build</span>
+          <span class="mini-value">graduation-demo</span>
+        </div>
+        <div class="hud-mini">
+          <span class="mini-label">Mode</span>
+          <span class="mini-value">threat-gated signup</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main form card -->
+    <section class="panel">
+      <div class="panel-head">
+        <h1 class="panel-title">
+          <i class="fa-solid fa-user-secret"></i>
+          Secure Signup Portal
+        </h1>
+        <p class="panel-sub">
+          This is a demo interface: it blocks breached passwords, flags predictable passwords, and checks exposure for email/phone.
+        </p>
+      </div>
+
+      <div class="panel-body">
+        <form id="signupForm" method="POST" class="form">
+
+          <!-- Personal -->
+          <div class="form-section">
+            <div class="section-title"><i class="fa-solid fa-id-badge"></i> Identity</div>
+
+            <div class="form-grid">
+              <div class="form-group colorful-input">
+                <label for="fname"><i class="fas fa-signature"></i> First Name <span class="required">*</span></label>
+                <input type="text" id="fname" name="fname" required placeholder="e.g. Noor">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="mname"><i class="fas fa-user"></i> Middle Name</label>
+                <input type="text" id="mname" name="mname" placeholder="Optional">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="lname"><i class="fas fa-id-card"></i> Last Name <span class="required">*</span></label>
+                <input type="text" id="lname" name="lname" required placeholder="e.g. Ahmad">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="dob"><i class="fas fa-birthday-cake"></i> Date of Birth <span class="required">*</span></label>
+                <input type="date" id="dob" name="dob" required>
+                <div class="input-decoration"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="form-section">
+            <div class="section-title"><i class="fa-solid fa-signal"></i> Contact</div>
+
+            <div class="form-grid">
+              <div class="form-group colorful-input">
+                <label for="email"><i class="fas fa-envelope"></i> Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="name@example.com">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="phone"><i class="fas fa-phone"></i> Phone <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="+962 7X XXX XXXX or (555) 123-4567">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="country"><i class="fas fa-globe"></i> Country <span class="required">*</span></label>
+                <select id="country" name="country" required>
+                  <option value="">Select Country</option>
+                </select>
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="favorite_color"><i class="fas fa-palette"></i> Favorite Color <span class="required">*</span></label>
+
+                <div class="color-picker">
+                  <input type="text" id="favorite_color" name="favorite_color" required placeholder="Type or pick color">
+                  <div class="color-options">
+                    <div class="color-option" style="background:#00ff9c;" data-color="Neon Green"></div>
+                    <div class="color-option" style="background:#00d9ff;" data-color="Cyan"></div>
+                    <div class="color-option" style="background:#7c4dff;" data-color="Violet"></div>
+                    <div class="color-option" style="background:#ff4d6d;" data-color="Neon Red"></div>
+                    <div class="color-option" style="background:#ffb703;" data-color="Amber"></div>
+                    <div class="color-option" style="background:#2ec4b6;" data-color="Teal"></div>
+                    <div class="color-option" style="background:#80ed99;" data-color="Mint"></div>
+                    <div class="color-option" style="background:#48cae4;" data-color="Ice Blue"></div>
+                    <div class="color-option" style="background:#c77dff;" data-color="Lilac"></div>
+                    <div class="color-option" style="background:#adb5bd;" data-color="Steel"></div>
+                  </div>
+                </div>
+
+                <div class="input-decoration"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Family -->
+          <div class="form-section">
+            <div class="section-title"><i class="fa-solid fa-people-roof"></i> Recovery PII (demo)</div>
+
+            <div class="form-grid">
+              <div class="form-group colorful-input">
+                <label for="mother_name"><i class="fas fa-female"></i> Mother's Name <span class="required">*</span></label>
+                <input type="text" id="mother_name" name="mother_name" required placeholder="(used to test predictability)">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="father_name"><i class="fas fa-male"></i> Father's Name <span class="required">*</span></label>
+                <input type="text" id="father_name" name="father_name" required placeholder="(collected for realism)">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="eldest_son"><i class="fas fa-child"></i> Eldest Son's Name</label>
+                <input type="text" id="eldest_son" name="eldest_son" placeholder="Optional">
+                <div class="input-decoration"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="form-section">
+            <div class="section-title"><i class="fa-solid fa-lock"></i> Credentials</div>
+
+            <div class="form-grid">
+              <div class="form-group colorful-input">
+                <label for="password"><i class="fas fa-key"></i> Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required placeholder="Use a passphrase...">
+                <div class="password-strength"><div class="strength-bar"></div></div>
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="confirm_password"><i class="fas fa-key"></i> Confirm Password <span class="required">*</span></label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Paste again">
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="security_question"><i class="fas fa-question-circle"></i> Security Question <span class="required">*</span></label>
+                <select id="security_question" name="security_question" required>
+                  <option value="">Select Question</option>
+                  <option value="pet">What was your first pet's name?</option>
+                  <option value="school">What was your elementary school?</option>
+                  <option value="city">What city were you born in?</option>
+                  <option value="custom">Enter custom question...</option>
+                </select>
+                <div class="input-decoration"></div>
+              </div>
+
+              <div class="form-group colorful-input">
+                <label for="security_answer"><i class="fas fa-edit"></i> Security Answer <span class="required">*</span></label>
+                <input type="text" id="security_answer" name="security_answer" required placeholder="Answer">
+                <div class="input-decoration"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="actions">
+            <button type="submit" class="rainbow-button">
+              <span class="button-text"><i class="fa-solid fa-bolt"></i> RUN SECURITY GATE</span>
+              <span class="btn-glitch"></span>
+            </button>
+
+            <button type="reset" class="clear-button">
+              <i class="fas fa-broom"></i> RESET FORM
+            </button>
+          </div>
+
+          <div class="footer-note">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Demo warning: Do not use real passwords. Generate a passphrase and store it safely.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content colorful-modal">
+      <div class="modal-header">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>Access Granted</h2>
+        <div class="modal-sub">ThreatGate verification complete.</div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-kpi">
+          <div class="kpi">
+            <div class="kpi-label">Status</div>
+            <div class="kpi-value ok">SECURE</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Session</div>
+            <div class="kpi-value">CREATED</div>
+          </div>
+        </div>
+        <p class="modal-text">Your account passed all blocking layers. Exposure checks were shown before confirmation.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="close-modal rainbow-button-small">
+          <i class="fas fa-check"></i> CONTINUE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
